@@ -8,10 +8,10 @@ import java.awt.Color;
 public class Candy extends Tile {
     public Candy(int x, int y) {
 		super(x, y);
-		this.setColor(Color.RED);
 	}
     
-    public void setLocation(int x, int y){
+    
+	public void setLocation(int x, int y){
         this.setX(x);
         this.setY(y);
     }

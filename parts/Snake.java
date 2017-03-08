@@ -1,22 +1,26 @@
 package parts;
 
+import java.awt.Color;
+
 import util.*;
 
-/**
- * Created by Kristof on 16/02/2017.
- */
 public class Snake extends LinkedList<Tile> {
 	private Direction dir;
 	private int ID;
+	private Color color;
 	
-    public Snake(int x, int y, int ID){
+    public Snake(int x, int y, int ID, Color c){
         this.prepend(new Tile(x, y));
         dir = Direction.RIGHT;
         this.ID = ID;
+        setColor(c);
     }
 
-    public Snake(Tile loc) {
+    public Snake(Tile loc,int ID, Color c) {
     	 this.prepend(loc);
+    	 dir = Direction.RIGHT;
+         this.ID = ID;
+         setColor(c);
 	}
 
 	public void update(){
@@ -50,6 +54,14 @@ public class Snake extends LinkedList<Tile> {
 
 	public void setID(int iD) {
 		ID = iD;
+	}
+
+	public Color getColor() {
+		return color;
+	}
+
+	public void setColor(Color color) {
+		this.color = color;
 	}
 	
 }

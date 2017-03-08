@@ -6,13 +6,11 @@ import java.awt.Graphics;
 public class Tile {
     private int x;
 	private int y;
-	private Color color;
 	private static int size;
 	
 	public Tile(int x, int y) {
 		this.setX(x);
 		this.setY(y);
-		this.setColor(Color.BLACK);
 	}
 
 	 @Override
@@ -41,18 +39,8 @@ public class Tile {
 		this.y = y;
 	}
 
-
-	public Color getColor() {
-		return color;
-	}
-
-
-	public void setColor(Color color) {
-		this.color = color;
-	}
-	
-	public void draw(Graphics g){
-		g.setColor(this.getColor());
+	public void draw(Graphics g, Color c){
+		g.setColor(c);
 		g.fillRect((int) Math.floor(x * size), (int) Math.floor(y * size), size, size);
 		g.setColor(Color.WHITE);
 		g.drawRect((int) Math.floor(x * size), (int) Math.floor(y * size), size, size);
@@ -69,7 +57,7 @@ public class Tile {
 
 	@Override
 	public String toString() {
-		return "Tile [x=" + x + ", y=" + y + ", color=" + color + "]";
+		return "Tile [x=" + x + ", y=" + y + "]";
 	}
 	
 }

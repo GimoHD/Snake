@@ -4,7 +4,7 @@ import parts.Tile;
 
 public class Debugger {
 
-	private static boolean on = true;
+	private static boolean on = false;
 	public static void print(String s){
 		if (Debugger.on){
 			System.out.println("DEBUG: " + s);

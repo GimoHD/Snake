@@ -1,16 +1,20 @@
 package gamemode;
 
+import java.awt.Color;
+import java.awt.Graphics;
+
 import game.Game;
 import parts.Snake;
 import parts.Tile;
 import util.Debugger;
+import util.Node;
 
 public class FreeMode extends GameMode {
 
 	public FreeMode(Game game) {
 		super(game);
-		this.setSize(40);
-		this.setSpeed(250);
+		this.setSize(20);
+		this.setSpeed(100);
 	}
 	
 	@Override
@@ -51,6 +55,16 @@ public class FreeMode extends GameMode {
 		}
 		
 	}
+	
+	@Override
+	public void collision() {
+		this.snakeCollision();
+	}
+
+	@Override
+	public void draw(Graphics g) {
+		
+		}
 	
 	
 

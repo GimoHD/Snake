@@ -41,8 +41,7 @@ public class ControlPanel extends JPanel {
 		for (GameMode mode: game.getGameModes()){
 			choose.addItem(mode);
 		}
-		
-		
+				
 		choose.setFocusable(false);
 		
 		this.add(startButton);

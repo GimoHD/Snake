@@ -1,6 +1,9 @@
 package game;
 
 import parts.Tile;
+
+import java.awt.Color;
+
 import gamemode.EasyMode;
 import gamemode.FreeMode;
 import gamemode.GameMode;
@@ -19,8 +22,8 @@ public class Game {
 	private String[][] board;
 	private Snake[] snakes = new Snake[2];
 	private Candy candy;
-	private GameMode[] gameModes = {new FreeMode(this), new EasyMode(this)};;
-
+	private GameMode[] gameModes = {new FreeMode(this), new EasyMode(this)};
+	
 	public Game() {
 		setMode(gameModes[0]);
 		SIZE = mode.getSize();
@@ -33,8 +36,10 @@ public class Game {
 	public void addNewSnake(int i) {
 		if (snakes[i] == null) {
 			int other = (i == 0) ? 1 : 0;
+			Color c = (i == 0) ? Color.GREEN : Color.BLUE;
+			
 			if (snakes[other] == null) {
-				snakes[i] = new Snake(5, 5, i);
+				snakes[i] = new Snake(5, 5, i, c);
 			} else {
 				int x;
 				int y;
@@ -44,7 +49,7 @@ public class Game {
 					y = (Random.nextInt(1, SIZE - 1));
 					loc = new Tile(x, y);
 					if (!snakes[other].find(loc)) {
-						snakes[i] = new Snake(loc);
+						snakes[i] = new Snake(loc,i,c);
 					}
 				}
 
@@ -79,37 +84,6 @@ public class Game {
 		setCandy(new Candy(x, y));
 	}
 
-	public void checkCollision() {
-		for (Snake snake : snakes) {
-			if (snake != null) {
-				for (Snake other : snakes) {
-					if (other != null) {
-						Node<Tile> next = other.getHead();
-						do {
-							if (snake.getID() == other.getID()) {
-								if (next.next() != null) {
-									next = next.next();
-								} else {
-									continue;
-								}
-							}
-							if (snake.getHead().get().equals(next.get())) {
-									System.out.println("game over");
-									System.exit(1);
-							}
-							if (next.next() !=null){
-								next = next.next();
-							}
-							
-						} while (next.next() != null);
-
-					}
-				}
-			}
-
-		}
-
-	}
 
 	public void move() {
 		mode.move();
@@ -167,9 +141,8 @@ public class Game {
 	public void checkHead() {
 	}
 
-	public void gameOver() {
-		System.out.print("Game over");
-		System.exit(0);
+	public void gameOver(int i) {
+		snakes[i] = null;
 	}
 
 	public Candy getCandy() {

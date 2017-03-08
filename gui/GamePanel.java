@@ -3,6 +3,7 @@
  */
 package gui;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import javax.swing.JPanel;
@@ -61,13 +62,14 @@ public class GamePanel extends JPanel {
         	Node<Tile> node = snake.getHead();
         	while(node !=null){
         		Debugger.print("drawing node");
-        		node.get().draw(g);
+        		node.get().draw(g, snake.getColor());
         		node = node.next();
         	}
         	}   	
         }
-        game.getCandy().draw(g);
-        game.checkCollision();
+        game.getCandy().draw(g, Color.RED);
+        game.getMode().collision();
+        game.getMode().draw(g);
         game.update();
         //repaint();
         // Draw the grid
