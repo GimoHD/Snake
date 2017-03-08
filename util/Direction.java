@@ -11,16 +11,26 @@ public enum Direction {
     private final int x;
     private final int y; 
      
+    /**
+     * @param x the x coordinate
+     * @param y the y coordinate
+     */
     private Direction(int x , int y)
     {
         this.x = x;
         this.y = y;
     }
 
+	/**
+	 * @return the Y coordinate
+	 */
 	public int getX() {
 		return x;
 	}
 
+	/**
+	 * @return the X coordinate
+	 */
 	public int getY() {
 		return y;
 	}

@@ -3,7 +3,6 @@ public class Node<T>{
 		private T element;
 		private Node<T> next;
 		
-		//constructor overloading
 		public Node(T element){
 			this(element, null);
 		}

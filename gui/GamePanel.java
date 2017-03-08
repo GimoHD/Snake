@@ -18,10 +18,12 @@ import util.Node;
  *
  */
 
+/**
+ * @author Kristof
+ *
+ */
 public class GamePanel extends JPanel {
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	int x;
 	int y;
@@ -58,7 +60,6 @@ public class GamePanel extends JPanel {
         
         for (Snake snake : game.getSnakes()){
         	if (snake !=null){
-        	//System.out.println(snake.getHead().get().getX());
         	Node<Tile> node = snake.getHead();
         	while(node !=null){
         		Debugger.print("drawing node");
@@ -67,25 +68,10 @@ public class GamePanel extends JPanel {
         	}
         	}   	
         }
+
+        game.move();
         game.getCandy().draw(g, Color.RED);
         game.getMode().collision();
         game.getMode().draw(g);
-        game.update();
-        //repaint();
-        // Draw the grid
-       /* int rectWidth = (int) Math.ceil(getWidth() / x);
-        int rectHeight = (int) Math.ceil(getHeight() / y);
-        for (int i = 0; i < x; i++) {
-            for (int j = 0; j < y; j++) {
-                // Upper left corner of this terrain rect
-                int x_rect = (int) Math.floor(i * rectWidth);
-                int y_rect = (int) Math.floor(j * rectHeight);
-                if( i == 0 || j==0 || i == x-1 || j == y-1){
-                	g.fillRect(x_rect, y_rect, rectWidth, rectHeight);
-                	//System.out.println("x_rect=" + x_rect + "y_rect=" + y_rect +"w=" + rectWidth +"h=" + rectHeight);
-                }
-            }
-        }
-        */
     }
 }

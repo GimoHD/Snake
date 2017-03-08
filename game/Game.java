@@ -24,6 +24,9 @@ public class Game {
 	private Candy candy;
 	private GameMode[] gameModes = {new FreeMode(this), new EasyMode(this)};
 	
+	/**
+	 * 
+	 */
 	public Game() {
 		setMode(gameModes[0]);
 		SIZE = mode.getSize();
@@ -33,6 +36,9 @@ public class Game {
 		newCandy();
 	}
 
+	/**
+	 * @param i adds a new snake with index i (if it does not exist)
+	 */
 	public void addNewSnake(int i) {
 		if (snakes[i] == null) {
 			int other = (i == 0) ? 1 : 0;
@@ -57,6 +63,9 @@ public class Game {
 		}
 	}
 
+	/**
+	 * generates a new candy
+	 */
 	public void newCandy() {
 		Debugger.print("Making new candy");
 		int x = (Random.nextInt(1, SIZE * 2) - 1);
@@ -85,42 +94,26 @@ public class Game {
 	}
 
 
+	/**
+	 * moves the snake
+	 */
 	public void move() {
 		mode.move();
 	}
 
+	/**
+	 * @param mode resets the game to a GameMode
+	 */
 	public void reset(GameMode mode) {
 		snakes = new Snake[2];
 		newCandy();
 		this.setMode(mode);
 	}
-	
-	public void start() {
 
-	}
-
-	public void update() {
-		move();
-		// snake
-		/*
-		 * for (int i = 0; i < SIZE; i++) { for (int j = 0; j < SIZE; j++) { if
-		 * ((i == 0 || i == SIZE - 1) && (j == 0 || j == SIZE - 1)) {
-		 * board[i][j] = "+"; } else if (i == 0 || i == SIZE - 1) { board[i][j]
-		 * = " - "; } else if (j == 0 || j == SIZE - 1) { board[i][j] = "|"; }
-		 * else { board[i][j] = "   "; } } }
-		 */
-	}
-
-	public void reDraw() {
-		for (int i = 0; i < SIZE; i++) {
-			for (int j = 0; j < SIZE; j++) {
-				System.out.print(board[i][j]);
-			}
-			System.out.println();
-		}
-
-	}
-
+	/**
+	 * @param i the index of the snake
+	 * @return a snake with the index i
+	 */
 	public Snake getSnake(int i) {
 		if (i < snakes.length && i >= 0) {
 			return snakes[i];
@@ -130,41 +123,65 @@ public class Game {
 
 	}
 
+	/**
+	 * @return the snakes which are active in the game
+	 */
 	public Snake[] getSnakes() {
 		return snakes;
 	}
 
+	/**
+	 * @return
+	 */
 	public int getSize() {
 		return SIZE;
 	}
 
-	public void checkHead() {
-	}
-
+	/**
+	 * @param i the index of the snake that lost
+	 */
 	public void gameOver(int i) {
 		snakes[i] = null;
 	}
 
+	/**
+	 * @return the candy which has been set that the snakes can eat
+	 */
 	public Candy getCandy() {
 		return candy;
 	}
 
+	/**
+	 * @param candy sets a candy the snakes can eat
+	 */
 	public void setCandy(Candy candy) {
 		this.candy = candy;
 	}
 
+	/**
+	 * @return the mode which is active at the time
+	 */
 	public GameMode getMode() {
 		return mode;
 	}
 
+	/**
+	 * @param mode the mode that has to be set active (will reset the current game)
+	 */
 	public void setMode(GameMode mode) {
 		this.mode = mode;
 	}
 
+	/**
+	 * @return an array of the game modes
+	 */
 	public GameMode[] getGameModes() {
 		return gameModes;
 	}
 
+	/**
+	 * @param gameModes an array of the game modes
+	 */
 	public void setGameModes(GameMode[] gameModes) {
 		this.gameModes = gameModes;
 	}
