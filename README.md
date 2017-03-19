@@ -1,4 +1,4 @@
 # Snake
 Snake game in java
 
-![alt tag](http://url/to/img.png)
+![alt tag](https://github.com/GimoHD/Snake/example.jpg)
