@@ -9,10 +9,17 @@ import parts.Snake;
 import parts.Tile;
 import util.Debugger;
 
+/**
+ * @author Kristof
+ *
+ */
 public class EasyMode extends GameMode {
 
 	ArrayList<Tile> walls;
 
+	/**
+	 * @param game
+	 */
 	public EasyMode(Game game) {
 		super(game);
 		this.setSize(20);
@@ -21,6 +28,9 @@ public class EasyMode extends GameMode {
 		this.addWalls();
 	}
 
+	/**
+	 * adds walls to the game mode
+	 */
 	public void addWalls() {
 		for (int i = 0; i < (this.getSize() * 2); i++) {
 			for (int j = 0; j < this.getSize(); j++) {
