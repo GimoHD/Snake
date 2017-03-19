@@ -1,10 +1,6 @@
 # Snake
 Snake game in java
 
-
-## Example images
-![alt tag](https://raw.githubusercontent.com/GimoHD/Snake/master/example.png)
-
 ## Usage instructions
 * Start Main, or open snake.jar
 * On start the game starts with the Free mode
@@ -13,6 +9,9 @@ Snake game in java
 * If the player collides with itself, an other snake or a wall the snake loses and gets erased from the game board.
 * To start over you can just press one of the controlls
 
+## Example images
+![alt tag](https://raw.githubusercontent.com/GimoHD/Snake/master/example.png)
+![alt tag](https://raw.githubusercontent.com/GimoHD/Snake/master/example2.png)
 
 ## Implementations
 
