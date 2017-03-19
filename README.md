@@ -3,7 +3,7 @@ Snake game in java
 
 
 ## Example images
-![alt tag](https://github.com/GimoHD/Snake/example.png)
+![alt tag](https://raw.githubusercontent.com/GimoHD/Snake/master/example.png)
 
 ## Usage instructions
 * Start Main, or open snake.jar
