@@ -10,7 +10,6 @@ import gamemode.GameMode;
 import parts.Candy;
 import parts.Snake;
 import util.Debugger;
-import util.Node;
 import util.Random;
 
 /**
@@ -19,7 +18,6 @@ import util.Random;
 public class Game {
 	private GameMode mode;
 	private int SIZE;
-	private String[][] board;
 	private Snake[] snakes = new Snake[2];
 	private Candy candy;
 	private GameMode[] gameModes = {new FreeMode(this), new EasyMode(this)};
@@ -32,7 +30,6 @@ public class Game {
 		SIZE = mode.getSize();
 		int x = Random.nextInt(0, 5);
 		System.out.println(x);
-		board = new String[SIZE * 2][SIZE];
 		newCandy();
 	}
 

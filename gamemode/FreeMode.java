@@ -1,13 +1,11 @@
 package gamemode;
 
-import java.awt.Color;
 import java.awt.Graphics;
 
 import game.Game;
 import parts.Snake;
 import parts.Tile;
 import util.Debugger;
-import util.Node;
 
 public class FreeMode extends GameMode {
 

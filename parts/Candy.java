@@ -1,7 +1,5 @@
 package parts;
 
-import java.awt.Color;
-
 /**
  * Created by Kristof on 17/02/2017.
  */
