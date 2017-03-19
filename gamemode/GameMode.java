@@ -48,10 +48,20 @@ public abstract class GameMode {
 		this.speed = speed;
 	}
 
+	/**
+	 * moves the snake (extras can be added like going trough walls)
+	 * and checks if he has to extend when a candy is eaten
+	 */
 	public abstract void move();
 
+	/**
+	 * Checks all the collisions for the snakes
+	 */
 	public abstract void collision();
 
+	/**
+	 * @param g
+	 */
 	public abstract void draw(Graphics g);
 
 	/**

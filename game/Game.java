@@ -24,7 +24,7 @@ public class Game {
 	private GUI gui;
 
 	/**
-	 *
+	 * Creates a new Instance of Game
 	 */
 	public Game() {
 		this.setMode(this.gameModes[0]);
@@ -50,8 +50,8 @@ public class Game {
 				int y;
 				Tile loc;
 				while (this.snakes[i] == null) {
-					x = (Random.nextInt(1, this.SIZE * 2) - 1);
-					y = (Random.nextInt(1, this.SIZE - 1));
+					x = (Random.nextInt(1, this.SIZE * 2) - 2);
+					y = (Random.nextInt(1, this.SIZE - 2));
 					loc = new Tile(x, y);
 					if (!this.snakes[other].find(loc)) {
 						this.snakes[i] = new Snake(loc, i, c);
@@ -193,11 +193,19 @@ public class Game {
 	public void setGameModes(GameMode[] gameModes) {
 		this.gameModes = gameModes;
 	}
-
+	
+	/**
+	 * 
+	 * @return the GUI
+	 */
 	public GUI getGui() {
 		return this.gui;
 	}
 
+	/**
+	 * 
+	 * @param sets the GUI
+	 */
 	public void setGui(GUI gui) {
 		this.gui = gui;
 	}

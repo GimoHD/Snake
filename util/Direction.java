@@ -21,14 +21,14 @@ public enum Direction {
 	}
 
 	/**
-	 * @return the Y coordinate
+	 * @return the Y coordinate a tile has to move the next step
 	 */
 	public int getX() {
 		return this.x;
 	}
 
 	/**
-	 * @return the X coordinate
+	 * @return the X coordinate he has to move the next step
 	 */
 	public int getY() {
 		return this.y;

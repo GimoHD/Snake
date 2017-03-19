@@ -13,15 +13,17 @@ import util.Direction;
 
 public class GUI extends JFrame implements KeyListener {
 
-	/**
-	 *
-	 */
+	
 	private static final long serialVersionUID = 1L;
 	JLabel label;
-	Game game;
-	GamePanel gamePanel;
-	ControlPanel controlPanel;
+	private Game game;
+	private GamePanel gamePanel;
+	private ControlPanel controlPanel;
 
+	/**
+	 * @param s
+	 * @param game
+	 */
 	public GUI(String s, Game game) {
 		super(s);
 		this.game = game;
@@ -36,14 +38,24 @@ public class GUI extends JFrame implements KeyListener {
 		this.gamePanel.requestFocus();
 	}
 
+	/**
+	 * @param s the message that has to be printed in the JLabel
+	 */
 	public void print(String s) {
 		this.controlPanel.print(s);
 	}
 
+	/**
+	 * @param a score of the first snake
+	 * @param b score of the second snake
+	 */
 	public void setScore(int a, int b) {
 		this.controlPanel.setScore(a, b);
 	}
 
+	/**
+	 * Initiates the tiles by setting the size according to the size of the GUI
+	 */
 	public void init() {
 		Tile.setSize((int) Math.ceil(this.gamePanel.getHeight() / this.game.getSize()));
 	}
