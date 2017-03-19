@@ -9,10 +9,6 @@ Snake game in java
 * If the player collides with itself, an other snake or a wall the snake loses and gets erased from the game board.
 * To start over you can just press one of the controlls
 
-## Example images
-![alt tag](https://raw.githubusercontent.com/GimoHD/Snake/master/example.png)
-![alt tag](https://raw.githubusercontent.com/GimoHD/Snake/master/example2.png)
-
 ## Implementations
 
 * A GUI with user options and the game board
@@ -28,3 +24,8 @@ Snake game in java
 * Maze modes: 
 ..*Easy mode: Simple rectangle wall, snake loses on collision
 ..*Free mode: No walls, the snake comes back from the other side
+
+## Example images
+![alt tag](https://raw.githubusercontent.com/GimoHD/Snake/master/example.png)
+![alt tag](https://raw.githubusercontent.com/GimoHD/Snake/master/example2.png)
+
