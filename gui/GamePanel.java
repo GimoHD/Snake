@@ -55,6 +55,10 @@ public class GamePanel extends JPanel {
     public void paintComponent(Graphics g) {
         // Important to call super class method
         super.paintComponent(g);
+        
+
+        game.move();
+        game.getMode().collision();
         // Clear the board
         g.clearRect(0, 0, getWidth(), getHeight());
         
@@ -68,10 +72,9 @@ public class GamePanel extends JPanel {
         	}
         	}   	
         }
-
-        game.move();
+        
         game.getCandy().draw(g, Color.RED);
-        game.getMode().collision();
+        
         game.getMode().draw(g);
     }
 }

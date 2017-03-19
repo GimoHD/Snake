@@ -68,8 +68,8 @@ public class Game {
 	 */
 	public void newCandy() {
 		Debugger.print("Making new candy");
-		int x = (Random.nextInt(1, SIZE * 2) - 1);
-		int y = (Random.nextInt(1, SIZE - 1));
+		int x = (Random.nextInt(1, SIZE * 2) - 2);
+		int y = (Random.nextInt(1, SIZE - 2));
 
 		Tile t = new Tile(x, y);
 		boolean foundFreeTile = false;

@@ -60,23 +60,26 @@ public abstract class GameMode {
 				for (Snake other : game.getSnakes()) {
 					if (other != null) {
 						Node<Tile> next = other.getHead();
-						do {
-							if (snake.getID() == other.getID()) {
-								if (next.next() != null) {
-									next = next.next();
-								} else {
-									continue;
-								}
+						if (snake.getID() == other.getID()) {
+							if (next.next() != null) {
+								next = next.next();
+							} else {
+								continue;
 							}
+						}
+						do {
+							
 							if (snake.getHead().get().equals(next.get())) {
 								game.gameOver(snake.getID());	
 								System.out.println("game over");
 							}
 							if (next.next() !=null){
 								next = next.next();
+							}else{
+								break;
 							}
 							
-						} while (next.next() != null);
+						} while (next != null);
 
 					}
 				}
