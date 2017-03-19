@@ -12,16 +12,16 @@
 * A GUI with user options and the game board
 * Multiple snake support (2 snakes MAX)
 * Player controls in the user interface in real-time (with the help of KeyListener): 
-..* Player one: Z		S 		Q 		D
-..* Player two: UP 		DOWN 	LEFT 	RIGHT
+  * Player one: Z		S 		Q 		D
+  * Player two: UP 		DOWN 	LEFT 	RIGHT
 * Check for collision with:
-..* Wall
-..* Itself & Other snakes
+  * Wall
+  * Itself & Other snakes
 * Food (Will be randomly spawned if eaten and added to the snake of the body)
 * Every step check if the snake hits food => food is added as a body part to the snake body
 * Maze modes: 
-..*Easy mode: Simple rectangle wall, snake loses on collision
-..*Free mode: No walls, the snake comes back from the other side
+  *Easy mode: Simple rectangle wall, snake loses on collision
+  *Free mode: No walls, the snake comes back from the other side
 * Scoreboard
 
 ## Example images
