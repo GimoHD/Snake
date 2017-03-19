@@ -1,6 +1,4 @@
 # Snake
-Snake game in java
-
 ## Usage instructions
 * Start Main, or open snake.jar
 * On start the game starts with the Free mode
@@ -24,6 +22,7 @@ Snake game in java
 * Maze modes: 
 ..*Easy mode: Simple rectangle wall, snake loses on collision
 ..*Free mode: No walls, the snake comes back from the other side
+* Scoreboard
 
 ## Example images
 ![alt tag](https://raw.githubusercontent.com/GimoHD/Snake/master/example.png)

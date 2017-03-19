@@ -7,6 +7,7 @@ import java.awt.Color;
 import gamemode.EasyMode;
 import gamemode.FreeMode;
 import gamemode.GameMode;
+import gui.GUI;
 import parts.Candy;
 import parts.Snake;
 import util.Debugger;
@@ -21,7 +22,7 @@ public class Game {
 	private Snake[] snakes = new Snake[2];
 	private Candy candy;
 	private GameMode[] gameModes = {new FreeMode(this), new EasyMode(this)};
-	
+	private GUI gui;
 	/**
 	 * 
 	 */
@@ -86,7 +87,9 @@ public class Game {
 			}
 			foundFreeTile = true;
 		}
-		Debugger.print("NEW CANDY MADE");
+		if (getGui() !=null){
+		getGui().print("New candy made");
+		}
 		setCandy(new Candy(x, y));
 	}
 
@@ -138,6 +141,7 @@ public class Game {
 	 * @param i the index of the snake that lost
 	 */
 	public void gameOver(int i) {
+		getGui().print("Game over: snake " + i + " lost");
 		snakes[i] = null;
 	}
 
@@ -181,6 +185,14 @@ public class Game {
 	 */
 	public void setGameModes(GameMode[] gameModes) {
 		this.gameModes = gameModes;
+	}
+
+	public GUI getGui() {
+		return gui;
+	}
+
+	public void setGui(GUI gui) {
+		this.gui = gui;
 	}
 
 }

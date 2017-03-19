@@ -46,6 +46,7 @@ public class Snake extends LinkedList<Tile> {
 			next = next.next();
 		}
 		last.setNext(null);
+		size--;
 	}
 
 	public int getID() {

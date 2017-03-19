@@ -70,7 +70,7 @@ public abstract class GameMode {
 							
 							if (snake.getHead().get().equals(next.get())) {
 								game.gameOver(snake.getID());	
-								System.out.println("game over");
+								
 							}
 							if (next.next() !=null){
 								next = next.next();

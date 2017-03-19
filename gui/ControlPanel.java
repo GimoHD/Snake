@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import game.Game;
@@ -22,11 +23,16 @@ public class ControlPanel extends JPanel {
 	Game game;
 	JComboBox<GameMode> choose;
 	JButton startButton;
+	JLabel  status;
+	JLabel  score;
 	
 	public ControlPanel(Game game) {
 		this.game = game;
 		this.setPreferredSize(new Dimension(1600, 50));
-		
+		status = new JLabel("Started game");
+		status.setFocusable(false);
+		score = new JLabel("Score: Snake 1: 0 - Snake 2: 0");
+		score.setFocusable(false);
 		startButton = new JButton("Start");
 		startButton.setFocusable(false);
 		startButton.addActionListener(new ActionListener(){
@@ -43,10 +49,18 @@ public class ControlPanel extends JPanel {
 		}
 				
 		choose.setFocusable(false);
-		
+		this.add(status);
 		this.add(startButton);
 		this.add(choose);
+		this.add(score);
+		
 	}
+	 public void print(String s){
+	    	status.setText(s);
+	    }
+	 public void setScore(int a, int b){
+	    	score.setText("Score: Snake 1: " + a + " - Snake 2: " + b);
+	    }
 	
 
 	

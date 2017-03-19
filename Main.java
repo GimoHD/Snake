@@ -11,7 +11,7 @@ public class Main {
     	SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 GUI frame = new GUI("Game",game);
-               
+                game.setGui(frame);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.setResizable(false);
                 frame.pack();

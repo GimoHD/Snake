@@ -17,11 +17,6 @@ import util.Node;
  * @author Kristof
  *
  */
-
-/**
- * @author Kristof
- *
- */
 public class GamePanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
@@ -76,5 +71,16 @@ public class GamePanel extends JPanel {
         game.getCandy().draw(g, Color.RED);
         
         game.getMode().draw(g);
+        int scoreA = 0;
+        int scoreB = 0;
+        
+        	if (game.getSnake(0) !=null){
+        		scoreA = game.getSnake(0).size();
+        	}
+        	if (game.getSnake(1) !=null){
+        		scoreB = game.getSnake(1).size();
+        	}
+        
+        game.getGui().setScore(scoreA, scoreB);
     }
 }

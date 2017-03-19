@@ -10,7 +10,7 @@ package util;
  */
 public class LinkedList<T> {
 	private Node<T> head;
-	private int size;
+	protected int size;
 	
 	/**
 	 * Constructor of an empty list

@@ -35,6 +35,13 @@ public class GUI extends JFrame implements KeyListener {
         gamePanel.requestFocus();
     }
     
+    public void print(String s){
+    	controlPanel.print(s);
+    }
+    public void setScore(int a, int b){
+    	controlPanel.setScore(a,b);
+    }
+    
     public void init(){
 		Tile.setSize((int) Math.ceil(gamePanel.getHeight() / game.getSize()));
     }
