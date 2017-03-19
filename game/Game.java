@@ -1,7 +1,5 @@
 package game;
 
-import parts.Tile;
-
 import java.awt.Color;
 
 import gamemode.EasyMode;
@@ -10,6 +8,7 @@ import gamemode.GameMode;
 import gui.GUI;
 import parts.Candy;
 import parts.Snake;
+import parts.Tile;
 import util.Debugger;
 import util.Random;
 
@@ -21,39 +20,41 @@ public class Game {
 	private int SIZE;
 	private Snake[] snakes = new Snake[2];
 	private Candy candy;
-	private GameMode[] gameModes = {new FreeMode(this), new EasyMode(this)};
+	private GameMode[] gameModes = { new FreeMode(this), new EasyMode(this) };
 	private GUI gui;
+
 	/**
-	 * 
+	 *
 	 */
 	public Game() {
-		setMode(gameModes[0]);
-		SIZE = mode.getSize();
+		this.setMode(this.gameModes[0]);
+		this.SIZE = this.mode.getSize();
 		int x = Random.nextInt(0, 5);
 		System.out.println(x);
-		newCandy();
+		this.newCandy();
 	}
 
 	/**
-	 * @param i adds a new snake with index i (if it does not exist)
+	 * @param i
+	 *            adds a new snake with index i (if it does not exist)
 	 */
 	public void addNewSnake(int i) {
-		if (snakes[i] == null) {
+		if (this.snakes[i] == null) {
 			int other = (i == 0) ? 1 : 0;
 			Color c = (i == 0) ? Color.GREEN : Color.BLUE;
-			
-			if (snakes[other] == null) {
-				snakes[i] = new Snake(5, 5, i, c);
+
+			if (this.snakes[other] == null) {
+				this.snakes[i] = new Snake(5, 5, i, c);
 			} else {
 				int x;
 				int y;
 				Tile loc;
-				while (snakes[i] == null) {
-					x = (Random.nextInt(1, SIZE * 2) - 1);
-					y = (Random.nextInt(1, SIZE - 1));
+				while (this.snakes[i] == null) {
+					x = (Random.nextInt(1, this.SIZE * 2) - 1);
+					y = (Random.nextInt(1, this.SIZE - 1));
 					loc = new Tile(x, y);
-					if (!snakes[other].find(loc)) {
-						snakes[i] = new Snake(loc,i,c);
+					if (!this.snakes[other].find(loc)) {
+						this.snakes[i] = new Snake(loc, i, c);
 					}
 				}
 
@@ -66,18 +67,18 @@ public class Game {
 	 */
 	public void newCandy() {
 		Debugger.print("Making new candy");
-		int x = (Random.nextInt(1, SIZE * 2) - 2);
-		int y = (Random.nextInt(1, SIZE - 2));
+		int x = (Random.nextInt(1, this.SIZE * 2) - 2);
+		int y = (Random.nextInt(1, this.SIZE - 2));
 
 		Tile t = new Tile(x, y);
 		boolean foundFreeTile = false;
 		while (!foundFreeTile) {
-			for (Snake snake : snakes) {
+			for (Snake snake : this.snakes) {
 				if (snake != null) {
 
 					if (snake.find(t)) {
-						x = (Random.nextInt(1, SIZE * 2) - 1);
-						y = (Random.nextInt(1, SIZE - 1));
+						x = (Random.nextInt(1, this.SIZE * 2) - 1);
+						y = (Random.nextInt(1, this.SIZE - 1));
 						t.setX(x);
 						t.setY(y);
 
@@ -87,36 +88,37 @@ public class Game {
 			}
 			foundFreeTile = true;
 		}
-		if (getGui() !=null){
-		getGui().print("New candy made");
+		if (this.getGui() != null) {
+			this.getGui().print("New candy made");
 		}
-		setCandy(new Candy(x, y));
+		this.setCandy(new Candy(x, y));
 	}
-
 
 	/**
 	 * moves the snake
 	 */
 	public void move() {
-		mode.move();
+		this.mode.move();
 	}
 
 	/**
-	 * @param mode resets the game to a GameMode
+	 * @param mode
+	 *            resets the game to a GameMode
 	 */
 	public void reset(GameMode mode) {
-		snakes = new Snake[2];
-		newCandy();
+		this.snakes = new Snake[2];
+		this.newCandy();
 		this.setMode(mode);
 	}
 
 	/**
-	 * @param i the index of the snake
+	 * @param i
+	 *            the index of the snake
 	 * @return a snake with the index i
 	 */
 	public Snake getSnake(int i) {
-		if (i < snakes.length && i >= 0) {
-			return snakes[i];
+		if ((i < this.snakes.length) && (i >= 0)) {
+			return this.snakes[i];
 		} else {
 			return null;
 		}
@@ -127,33 +129,35 @@ public class Game {
 	 * @return the snakes which are active in the game
 	 */
 	public Snake[] getSnakes() {
-		return snakes;
+		return this.snakes;
 	}
 
 	/**
 	 * @return
 	 */
 	public int getSize() {
-		return SIZE;
+		return this.SIZE;
 	}
 
 	/**
-	 * @param i the index of the snake that lost
+	 * @param i
+	 *            the index of the snake that lost
 	 */
 	public void gameOver(int i) {
-		getGui().print("Game over: snake " + i + " lost");
-		snakes[i] = null;
+		this.getGui().print("Game over: snake " + i + " lost");
+		this.snakes[i] = null;
 	}
 
 	/**
 	 * @return the candy which has been set that the snakes can eat
 	 */
 	public Candy getCandy() {
-		return candy;
+		return this.candy;
 	}
 
 	/**
-	 * @param candy sets a candy the snakes can eat
+	 * @param candy
+	 *            sets a candy the snakes can eat
 	 */
 	public void setCandy(Candy candy) {
 		this.candy = candy;
@@ -163,11 +167,13 @@ public class Game {
 	 * @return the mode which is active at the time
 	 */
 	public GameMode getMode() {
-		return mode;
+		return this.mode;
 	}
 
 	/**
-	 * @param mode the mode that has to be set active (will reset the current game)
+	 * @param mode
+	 *            the mode that has to be set active (will reset the current
+	 *            game)
 	 */
 	public void setMode(GameMode mode) {
 		this.mode = mode;
@@ -177,18 +183,19 @@ public class Game {
 	 * @return an array of the game modes
 	 */
 	public GameMode[] getGameModes() {
-		return gameModes;
+		return this.gameModes;
 	}
 
 	/**
-	 * @param gameModes an array of the game modes
+	 * @param gameModes
+	 *            an array of the game modes
 	 */
 	public void setGameModes(GameMode[] gameModes) {
 		this.gameModes = gameModes;
 	}
 
 	public GUI getGui() {
-		return gui;
+		return this.gui;
 	}
 
 	public void setGui(GUI gui) {

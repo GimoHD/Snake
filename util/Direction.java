@@ -1,37 +1,36 @@
 package util;
+
 /**
  * Created by Kristof on 16/02/2017.
  */
 public enum Direction {
-    LEFT(-1,0),
-    RIGHT(1,0),
-    UP(0,-1),
-    DOWN(0,1);
-	
-    private final int x;
-    private final int y; 
-     
-    /**
-     * @param x the x coordinate
-     * @param y the y coordinate
-     */
-    private Direction(int x , int y)
-    {
-        this.x = x;
-        this.y = y;
-    }
+	LEFT(-1, 0), RIGHT(1, 0), UP(0, -1), DOWN(0, 1);
+
+	private final int x;
+	private final int y;
+
+	/**
+	 * @param x
+	 *            the x coordinate
+	 * @param y
+	 *            the y coordinate
+	 */
+	private Direction(int x, int y) {
+		this.x = x;
+		this.y = y;
+	}
 
 	/**
 	 * @return the Y coordinate
 	 */
 	public int getX() {
-		return x;
+		return this.x;
 	}
 
 	/**
 	 * @return the X coordinate
 	 */
 	public int getY() {
-		return y;
+		return this.y;
 	}
 }
