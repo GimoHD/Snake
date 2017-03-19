@@ -20,8 +20,8 @@
 * Food (Will be randomly spawned if eaten and added to the snake of the body)
 * Every step check if the snake hits food => food is added as a body part to the snake body
 * Maze modes: 
-  *Easy mode: Simple rectangle wall, snake loses on collision
-  *Free mode: No walls, the snake comes back from the other side
+  * Easy mode: Simple rectangle wall, snake loses on collision
+  * Free mode: No walls, the snake comes back from the other side
 * Scoreboard
 
 ## Example images
